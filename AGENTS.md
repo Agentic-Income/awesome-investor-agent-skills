@@ -8,7 +8,7 @@ This repo is part of the FrankX / Starlight / Arcanea agent estate.
 - Class: content-or-program, public-safe research catalog
 - Default health command: `node scripts/validate-catalog.mjs` (portable, runs in CI); `./scripts/validate-catalog.ps1` remains for Windows
 - Tests: `node --test "scripts/*.test.mjs"` (offline)
-- Remote target: `https://github.com/frankxai/awesome-investor-agent-skills`
+- Remote target: `https://github.com/Agentic-Income/awesome-investor-agent-skills`
 
 ## Agent Rules
 
