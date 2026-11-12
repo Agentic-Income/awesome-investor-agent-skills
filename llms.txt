@@ -1,0 +1,52 @@
+# Awesome Investor Agent Skills
+
+> Web-first catalog and one portable agent skill for investor research: filings, public market data, portfolio maths, and leakage-safe backtesting. Research and simulation only — never personalized investment advice.
+
+Audience: researchers and builders mapping public financial tooling into a source-backed agent workflow, plus agents asked to shortlist investor or quant tooling. Not for anyone looking for trade signals or capital allocation.
+
+## How to use
+
+No package install and no build step. The catalog is `README.md`; the weekly research loop is described there and run by `.github/workflows/weekly-harvest.yml`.
+
+Health checks, the same ones CI runs:
+
+    node scripts/validate-catalog.mjs
+    node --test "scripts/*.test.mjs"
+
+Run the harvester yourself (it only proposes):
+
+    GITHUB_TOKEN=... node scripts/harvest.mjs
+
+To use the skill, copy the folder into a skills directory your agent reads (for example `.agents/skills/` in a project):
+
+    git clone https://github.com/Agentic-Income/awesome-investor-agent-skills
+    cp -r awesome-investor-agent-skills/skills/investor-research <your-project>/.agents/skills/
+
+## Key files
+
+- `README.md` — the catalog: curated table, weekly research loop, contribution standard, research method.
+- `skills/investor-research/SKILL.md` — the skill: inputs, rules, and the required output shape, ending in a human approval gate.
+- `data/repos.json` — reviewed entries, each carrying category, asset class, execution risk, privacy risk, why included, what it is not for, and a review date.
+- `data/sources.json` — the search sources the weekly harvester watches. Edit this to change what is monitored.
+- `scripts/harvest.mjs` — opens a pull request with a report; it never adds an entry on its own.
+- `reports/` — dated harvest reports.
+- `docs/paths/` — path docs for crypto investing, general investor research, OSS terminal work, risk and custody, and trading systems.
+- `AGENTS.md` — repo classification, health commands, and agent rules.
+
+## Scope and exclusions
+
+- Research, memo, backtest, and simulation outputs only. No live trading, no capital movement, no wallet actions.
+- Execution-adjacent projects are labeled as such; keep their use to public data and simulation.
+- Licence traps are named up front. Never copy code from AGPL, GPL, unlicensed, or custom-licence projects into another repository.
+- A human reviewer decides what enters `data/repos.json`. Harvest output is a proposal, and SPDX detection is a hint, not a judgement.
+- No secrets, private positions, account data, or wallet material.
+- Nothing here is investment, legal, tax, accounting, or compliance advice, and inclusion is not an endorsement.
+- Content is dedicated to the public domain under CC0 1.0.
+
+## Links
+
+- [README](./README.md)
+- [AGENTS.md](./AGENTS.md)
+- [Organization profile](https://github.com/Agentic-Income)
+- [Sibling catalog: awesome-wealth-agent-skills](https://github.com/Agentic-Income/awesome-wealth-agent-skills)
+- [Sibling catalog: awesome-agentic-income](https://github.com/Agentic-Income/awesome-agentic-income)
